@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->decimal('balance')->default(0.00);
             $table->string('date_of_birth')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
