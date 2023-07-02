@@ -15,6 +15,7 @@ class Transfer extends Model
         'user_id',
         'payee_id',
         'amount',
+        'description',
         'status'
     ];
 
