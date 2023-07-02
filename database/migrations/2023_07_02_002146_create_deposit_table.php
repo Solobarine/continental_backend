@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('deposit', function (Blueprint $table) {
             $table->id();
+            $table->string('transaction_id');
             $table->foreignId('user_id');
             $table->decimal('amount');
             $table->string('service');
