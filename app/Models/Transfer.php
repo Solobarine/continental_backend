@@ -11,6 +11,7 @@ class Transfer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'transaction_id',
         'user_id',
         'payee_id',
         'amount',
