@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('card', function (Blueprint $table) {
+        Schema::create('transfers', function (Blueprint $table) {
             $table->id();
+            $table->string('transaction_id');
             $table->foreignId('user_id');
-            $table->integer('number');
-            $table->string('provider')->default('Visa');
+            $table->integer('payee_id');
+            $table->decimal('amount');
+            $table->string('description')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('card');
+        Schema::dropIfExists('transfers');
     }
 };

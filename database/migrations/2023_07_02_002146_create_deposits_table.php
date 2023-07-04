@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('deposits', function (Blueprint $table) {
             $table->id();
-            $table->string('sender');
+            $table->string('transaction_id');
             $table->foreignId('user_id');
-            $table->string('title');
-            $table->string('body');
-            $table->boolean('starred')->default(false);
-            $table->boolean('important')->default(false);
-            $table->boolean('opened')->default(false);
-            $table->boolean('archived')->default(false);
+            $table->decimal('amount');
+            $table->string('service');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('message');
+        Schema::dropIfExists('deposits');
     }
 };

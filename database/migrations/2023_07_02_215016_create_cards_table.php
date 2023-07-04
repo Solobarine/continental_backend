@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('deposit', function (Blueprint $table) {
+        Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id');
             $table->foreignId('user_id');
-            $table->decimal('amount');
-            $table->string('service');
-            $table->string('status');
+            $table->bigInteger('number');
+            $table->string('provider')->default('Visa');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('deposit');
+        Schema::dropIfExists('cards');
     }
 };

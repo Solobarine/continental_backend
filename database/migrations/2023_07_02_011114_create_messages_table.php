@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transfer', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id');
+            $table->string('sender');
             $table->foreignId('user_id');
-            $table->unsignedBigInteger('payee_id');
-            $table->foreign('payee_id')->references('id')->on('users');
-            $table->decimal('amount');
-            $table->string('description')->nullable();
-            $table->string('status');
+            $table->string('title');
+            $table->string('body');
+            $table->boolean('starred')->default(false);
+            $table->boolean('important')->default(false);
+            $table->boolean('opened')->default(false);
+            $table->boolean('archived')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transfer');
+        Schema::dropIfExists('messages');
     }
 };
