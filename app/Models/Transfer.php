@@ -19,13 +19,8 @@ class Transfer extends Model
         'status'
     ];
 
-    public function payee(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'id', 'payee_id');
-    }
-
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class);
     }
 }
