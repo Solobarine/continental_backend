@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('transaction_id');
             $table->foreignId('user_id');
-            $table->integer('payee_id');
+            $table->unsignedBigInteger('payee_id');
+            $table->foreign('payee_id')->references('id')->on('users');
             $table->decimal('amount');
             $table->string('description')->nullable();
             $table->string('status');
