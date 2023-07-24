@@ -36,10 +36,10 @@ class MessagesTemplate
                 return 'Transfer Error. Try Again Later';
             },
             'transfer_success' => function ($amount, $name) {
-                return 'Your Transfer Request has been completed. $' . $amount . ' has been sent to ' . $name['first'] . $name['last'] . 'Have a wonderful day';
+                return 'Your Transfer Request has been completed. $' . $amount . ' has been sent to ' . $name['first'] . ' ' . $name['last'] . '. Have a wonderful day';
             },
             'credit_success' => function ($details) {
-                return $details['first'] . '' . $details['last'] . ' Transferred $' . $details['amount'] . ' to your account. Your balance is now $' . $details['balance'] . '.';
+                return $details['first'] . ' ' . $details['last'] . '  Transferred $' . $details['amount'] . ' to your account. Your balance is now $' . $details['balance'] . '.';
             },
             'card_error' => function ($reason) {
                 if ($reason === 'Invalid Provider') {
