@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\MessagesTemplate\MessagesTemplate;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Deposit;
+use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -150,5 +152,15 @@ class UserController extends Controller
             'last_name' => $user->last_name,
             'id' => $user->id
         ], 200);
+    }
+
+    public function recents()
+    {
+        $user = Auth::user();
+        $deposits = Deposit::where('id', $user->id)->orderBy('created_at', 'desc')->take(5)->get();
+
+        $transfers = Transfer::join('users', 'users.id', '=', 'transfers.payee_id')->where('user_id', $user->id)->orWhere('payee_id', $user->id)->orderBy('created_at', 'desc')->take(5)->get(['transfers.*', 'users.first_name', 'users.last_name']);
+
+        return response()->json(['deposits' => $deposits, 'transfers' => $transfers], 200);
     }
 }

@@ -36,6 +36,7 @@ Route::controller(UserController::class)->group(function () {
     Route::patch('/settings/update-password', 'update_password');
     Route::patch('/settings/update-email', 'update_email');
     Route::post('/receiver/account-number', 'receiver');
+    Route::get('/user/recents', 'recents');
 });
 
 Route::controller(CardController::class)->group(function () {
