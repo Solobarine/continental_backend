@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'http://localhost:5173/*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'http://localhost:5173/*', 'https://continental-kappa.vercel.app/*'],
 
     'allowed_methods' => ['*'],
 
