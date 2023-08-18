@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Continental
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Front End](#🌍-front-end)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Dependencies](#install-dependencies)
+  - [Configure Environment Variables](#configure-environment-variables)
+  - [Run the Application](#run-the-application)
+  - [Access the API](#access-the-api)
+- [Author](#👤-author)
+- [Contributing](#contributing)
+- [Issues and Questions](#issues--questions)
+- [Show your Support](#🙏-show-your-support)
+- [License](#📝-license)
 
-## About Laravel
+## Introduction
+Welcome to the **Continental** backend application! Continental is the backend system of the Continental web app – a financial application designed for users to conveniently send and receive money. This backend system handles various functionalities to ensure a secure and seamless user experience.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
+### 1. Form Validation
+Continental employs robust form validation mechanisms to ensure that user inputs are accurate, complete, and meet the required criteria. This prevents erroneous data from entering the system, leading to a more reliable and error-free experience.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 2. JWT Authentication
+User security is a top priority for Continental. We use JSON Web Tokens (JWT) to implement a strong authentication process. This ensures that only authorized users can access the application and its features, safeguarding sensitive financial information.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 3. Deposit and Withdrawal
+Users can easily deposit and withdraw funds through the Continental web app. The backend handles these transactions securely, updating user account balances accurately and promptly.
 
-## Learning Laravel
+### 4. Transaction Messages
+Upon completing a transaction, users receive clear and concise messages indicating whether the transaction was successful or unsuccessful. This helps users stay informed about the status of their financial activities.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 5. Login Messages
+When users successfully log in to their accounts, they receive a welcoming message. This friendly touch enhances the user experience and assures them that their login was successful.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 6. Database Integration
+Continental employs a robust database system to store user account information, transaction history, and other critical data. This ensures data integrity, scalability, and efficient data retrieval for a seamless user experience.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 7. User Profile Management
+Users can create and edit their profiles through the web app. This feature allows them to keep their personal and financial information up to date and relevant.
 
-## Laravel Sponsors
+## Technologies Used
+- **PHP**: 
+PHP is a widely-used server-side scripting language primarily designed for web development
+- **Laravel**: Laravel is a popular open-source PHP web framework known for its elegant syntax and robust features that streamline and simplify web application development.
+- **JSON Web Token(JWT)**: JWT (JSON Web Token) is a compact and self-contained method for securely transmitting information between parties as a JSON object.
+- **MySQL**: 
+MySQL is an open-source relational database management system that efficiently stores and manages structured data for various applications.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 🌍 Front End
 
-### Premium Partners
+The Project also has a Front End. Click <a href='https://github.com/solobarine/continental'>here</a> to view the Front End.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Getting Started
+To set up the Continental backend app locally, follow these steps:
+
+### Clone the Repository
+```shell
+git clone https://github.com/solobarine/continental_backend.git
+```
+
+### Install Dependencies
+```shell
+cd continental-backend
+composer install
+```
+
+### Configure Environment Variables
+- Create a .env file based on the provided .env.example template.
+- Configure your database connection settings, JWT secret key, and any other required variables.
+
+### Run the Application
+```shell
+php artisan serve
+```
+
+### Access the API
+The API will be available at http://localhost:8000. You can use tools like Postman to interact with the API endpoints.
+
+## 👤 Author
+
+- Name: **Solomon Barine Akpuru**
+- GitHub: [@solobarine](https://github.com/solobarine)
+- LinkedIn: [solomon-akpuru](https://www.linkedin.com/in/solomon-akpuru)
 
 ## Contributing
+We welcome contributions to the Continental backend app! If you'd like to contribute, please fork the repository, make your changes, and submit a pull request. Be sure to follow our contribution guidelines.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Issues & Questions
+If you encounter any issues, have questions, or need assistance, please open an issue. We're here to help!
 
-## Code of Conduct
+## 🙏 Show your Support
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Give a ⭐️ if you like the project!
 
-## Security Vulnerabilities
+## 📝 License
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Go Buddy is released under the [MIT](./LICENSE) License.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Thank you for choosing Continental. Together, we're creating a secure and convenient financial experience for users around the world.
