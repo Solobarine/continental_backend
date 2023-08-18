@@ -1,4 +1,5 @@
 <img src='./public/logo.svg' alt='Logo' width='80'/>
+
 # Continental
 
 ## Table of Contents
