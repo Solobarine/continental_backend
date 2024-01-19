@@ -8,10 +8,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Traits\UserTrait;
 
 class AuthController extends Controller
 {
     //
+    use UserTrait;
+
     public function register(Request $request)
     {
         $request->validate([
@@ -89,6 +92,7 @@ class AuthController extends Controller
         return response()->json([
             'message' => ' Logged in successfully',
             'user' => $user,
+            'recents' => $this->recents(),
             'authorization' => [
                 'token' => $token,
                 'type' => 'bearer'
@@ -98,7 +102,7 @@ class AuthController extends Controller
 
     public function user()
     {
-        return Auth::user();
+        return ['user' => Auth::user(), 'recents' => $this->recents()];
     }
 
     public function logout()
@@ -120,3 +124,4 @@ class AuthController extends Controller
         ]);
     }
 }
+
