@@ -24,9 +24,11 @@ use App\Http\Controllers\API\UserController;
 //     return $request->user();
 // });
 
+Route::post('register', [AuthController::class, 'register']);
+
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
-    Route::post('register', 'register');
+    // Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::get('user', 'user');
 });
@@ -35,6 +37,7 @@ Route::controller(UserController::class)->group(function () {
     Route::patch('/settings/update-profile', 'update');
     Route::patch('/settings/update-password', 'update_password');
     Route::patch('/settings/update-email', 'update_email');
+    Route::patch('/user/update-profile-image', 'update_profile_picture');
     Route::post('/receiver/account-number', 'receiver');
     Route::get('/user/recents', 'recents');
 });
@@ -61,3 +64,4 @@ Route::controller(MessageController::class)->group(function () {
     Route::get('/account/messages', 'index');
     Route::patch('/account/messages/{id}', 'update');
 });
+

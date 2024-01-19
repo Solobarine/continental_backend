@@ -10,6 +10,7 @@ use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -92,6 +93,24 @@ class UserController extends Controller
         }
     }
 
+    public function update_profile_picture(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            "file" => 'required|mimes:jpeg,jpg,png|max:1024'
+        ]);
+
+        // Check if User has Profile Image
+        $default_image = Storage::get('default_image.jpg');
+
+
+        //            $image = $request->file;
+
+        //          $path = Storage::putFile('profile_images', $image);
+        dd($default_image);
+    }
+
     public function update_email(Request $request)
     {
         $request->validate([
@@ -164,3 +183,4 @@ class UserController extends Controller
         return response()->json(['deposits' => $deposits, 'transfers' => $transfers], 200);
     }
 }
+
