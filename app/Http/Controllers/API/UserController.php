@@ -183,4 +183,3 @@ class UserController extends Controller
         return response()->json(['deposits' => $deposits, 'transfers' => $transfers], 200);
     }
 }
-
