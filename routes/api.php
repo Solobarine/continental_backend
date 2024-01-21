@@ -37,7 +37,7 @@ Route::controller(UserController::class)->group(function () {
     Route::patch('/settings/update-profile', 'update');
     Route::patch('/settings/update-password', 'update_password');
     Route::patch('/settings/update-email', 'update_email');
-    Route::patch('/user/update-profile-image', 'update_profile_picture');
+    Route::post('/user/update_profile_picture', 'update_profile_picture');
     Route::post('/receiver/account-number', 'receiver');
     Route::get('/user/recents', 'recents');
 });
@@ -64,4 +64,3 @@ Route::controller(MessageController::class)->group(function () {
     Route::get('/account/messages', 'index');
     Route::patch('/account/messages/{id}', 'update');
 });
-
