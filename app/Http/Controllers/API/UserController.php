@@ -95,20 +95,28 @@ class UserController extends Controller
 
     public function update_profile_picture(Request $request)
     {
-        $user = Auth::user();
+        $user = User::find(Auth::id());
 
         $request->validate([
-            "file" => 'required|mimes:jpeg,jpg,png|max:1024'
+            "avatar" => 'required|mimes:jpeg,jpg,png|max:1024'
         ]);
+        $image = $request->avatar;
 
-        // Check if User has Profile Image
-        $default_image = Storage::get('default_image.jpg');
+        if ($user->profile_photo_url) {
+            Storage::delete($user->profile_photo_url);
+        }
+
+        $path = Storage::putFile('profile_images', $image, 'public');
+
+        $user->profile_photo_url = $path;
 
 
-        //            $image = $request->file;
+        $user->save();
 
-        //          $path = Storage::putFile('profile_images', $image);
-        dd($default_image);
+        return response()->json([
+            'message' => 'File Received',
+            'file' => $path
+        ]);
     }
 
     public function update_email(Request $request)
