@@ -19,7 +19,7 @@ class AuthController extends Controller
             'last_name' => 'required|string',
             'email' => 'required|string|email',
             'password' => 'required|string|regex:/^(?=.*?[A-Za-z])(?=.*?[0-9]).{8,20}$/',
-            'confirm_password' => 'required|string|same:password'
+            'password_confirm' => 'required|string|same:password'
         ]);
 
         $is_user = User::where('email', $request->email)->first();
@@ -120,3 +120,4 @@ class AuthController extends Controller
         ]);
     }
 }
+
